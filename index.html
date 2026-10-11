@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- The <head> element contains information used by the browser.
+This section sets character encoding, sets display and device width, adds a page title, and links to the external CSS stylesheet.
+<meta charset="UTF-8"> sets character encoding for the page.
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> sets device width for media queries.
+<title>...</title> adds page title content.
+<link rel="stylesheet" href="css/style.css"> links to the external CSS stylesheet.
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Web Design - Typography</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<!-- 
+The <body> element contains the page's visible content.
+The <main> element holds the page's hero and card gallery sections.
+This section creates the <body> and <main> elements, and assigns the class .container to <main>. 
+<main class="container"> creates assigns the .container class to the <main> element.
+-->
+<body>
+  <main class="container">
+
+<!--
+The <header> element contains the page's hero content.
+The <h1> element contains the page's headline.
+The <p> elements contain the tagline and description text.
+This section creates the headline <h1>, tagline and description <p> containers, and assigns them classes. 
+Headline, tagline, and description text is added.
+<h1> creates a container for the headline.
+<p> creates containers for the tagline and description.
+<class="centered"> assigns the .centered class to format the tagline text.
+<class="small"> assigns the .small class to format the description text.
+-->
+    <header class="hero">
+      <h1>All about clamps!</h1>
+      <p class="tagline"> 
+        A complete and honest history of the most useful invention the world has ever seen. 
+      </p>
+      <p class="small">
+        All sentient beings consider the clamp to be the &#35;1 greatest piece of technological artistry 
+        ever invented. Join us as we explore the magic and magnificence of <em>clamps!</em>
+      </p>
+    </header> <!-- /.hero -->
+
+<!-- CARD GALLERY -->
+<!--
+The <section> element contains the card gallery.
+The <h2> element contains the gallery's header.
+THe <span> elements group text for formatting.
+The <div> element is the grid that holds the gallery cards.
+Each <article> element contains one card.
+Each <h3> element contains a card's title.
+The <p> elements contain a card's decription and caption text.
+This section creates element containers for the gallery grid, gallery header, and gallery cards, 
+and they are assigned classes to format their content. TItle, description, and caption are added for each card.
+<h1> creates a container for the headline.
+<p> creates containers for the tagline and description.
+<class="centered"> assigns the .centered class to format the tagline text.
+<class="small"> assigns the .small class to format the description text.
+-->
+    <section>
+      <h2><span class="clamps">---&#91; </span>clamp talk<span class="clamps">&#93;---</span></h2>
+
+      <div class="grid">
+        <article class="card">
+          <h3 class="centered">The Numbers Don't Lie</h3> 
+          <p>
+            Have you ever wondered how many clamps are sold annually? Well, you aren't alone. 
+            So we'll tell you. An astonishing <strong>990 trillion clamps</strong> were sold in 2025. 
+            That's an average of 119,277 clamps for every person on planet earth! 
+          </p>
+          <p class="small">Data courtesy <em>The National Trust for the Preservation of Modern 
+            and Historical Clamps</em></p>
+        </article>
+
+        <article class="card">
+          <h3 class="centered">Clamp Values</h3>
+          <p>I raised the minimum and maximum clamp values for the hero section text.
+          I raised the minimum clamp value for caption text in header and gallery.
+          I added clamp padding to the header and gallery sections, and adjusted the gap between cards 
+          in the gallery grid.
+          </p>
+          <p class="small"> Min makes titles stand out on the page and keeps small text readable on mobile.<br>
+           Max keeps the grid from spacing out too much on desktop.</p>
+        </article>
+
+        <article class="card">
+          <h3 class="centered">Arts & Clamps</h3>
+          <p>Is there anything more beautiful than a newly minted clamp? Thanks to their bold form and 
+            rugged usefulness, clamps have inspired countless works of art in every imaginable form. After 
+            all, as Pontiforque famously wrote, "If humanity had but a single muse...surely would it be the 
+            humble, mighty clamp!"
+          </p>
+          <p class="small">Excerpt from Sir Landry-Walls Pontiforque's <em>Ode to a Clamp, &#35;643</em></p>
+        </article>
+
+        <article class="card">
+          <h3 class="centered">What if...?</h3>
+          <p>Clamps exist. Everyone has used them. Everyone has loved them. Everyone has misplaced one when they really needed 
+            it and been quite put out. We all agree that we <em>could not</em> imagine life today without clamps. But what if 
+            we absolutely HAD TO imagine living without them? Where would civilization be without clamps?</p>
+            <p>That is not a question we will answer here.&#42;</p>
+          </p>
+          <p class="small">&#42;Because the answer would shake you to your very core.</p>
+        </article>
+
+      </div> <!-- /.grid -->
+    </section>
+
+    <footer>Created by: Kimberley Yockers • Clamp Assignment<br><br>
+    <p class="left">I chose 55px, 5vw, 100px for h1 becuase my headline is very short and I want 
+      it to be BIG on the page so it will grab your attention and lead your eye to the rest of the 
+      hero content.<br><br>
+      I tested my page on chrome desktop and chrome mobile (android). I don't have a tablet, but I 
+      resized my browser in developer mode and it looked pretty good at all the suggested sizes.</p>
+    </footer>
+
+  </main><!-- /.container -->
+
+</body>
+</html>

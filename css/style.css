@@ -1,0 +1,314 @@
+
+/*  1
+==========================================================================================================
+    VARIABLES + RESET
+    CSS variables (design tokens) keep styling
+    consistent and easy to update in one place.
+==========================================================================================================
+*/
+:root {
+    --ink: #111111;                         /* primary text color */  /* dark grey */
+    --storm: #005576;                       /* secondary text color (passes AA) */  /* dark blue */
+    --stormy: #0f7096;                      /* highlighted text color */  /* medium blue */
+    --purple: #480075;                      /* dark purple text */
+    --bg: #ecf6fc;                          /* page background color */  /* light blue */
+    --card: #ededed;                        /* card background color */  /* white */
+    --subtle-line: rgba(0, 0, 0, 0.122);    /* subtle border color */
+    --shadow: 0 10px 22px rgba(0,0,0,.06);  /* subtle shadow for soft elevation */
+    --radius: 14px;                           /* rounded corners */
+    --heavy-text: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;  /* heavy font for title text */
+    --line: 1px solid #0f7096;              /* fine blue line */
+}
+
+/* Box-sizing reset: padding no longer adds to total width */
+* { box-sizing: border-box;     /* formats container */
+}  
+
+
+
+/*  2
+==========================================================================================================
+    BASE STYLES (MOBILE-FIRST)
+    clamp() gives fluid typography without
+    a separate media query for every size.
+==========================================================================================================
+*/
+
+/* body is a class selector.
+This ruleset styles the <body> element. No top/bottom margins. Text is dark grey, sans-serif, with increased line height for 
+greater legibility. The backgroubd is light blue. Text scales via clamp().
+*/
+body {
+    margin: 0 20px;                             /* removes default vertical margins */
+    color: var(--ink);                          /* dark grey text */
+    font-family: Arial, Helvetica, sans-serif;  /* clean sans-serif stack */
+    line-height: 1.6;                           /* more space between lines */
+    background: var(--bg);                      /* light blue background */
+    font-size: clamp(16px, 1.2vw, 18px);        /* fluid text sizing */
+    /* clamp(min, fluid, max):
+    16px floor keeps body readable on phones,
+    1.2vw scales with the screen,
+    18px ceiling stops it growing too large. */
+}
+
+/* footer is a class selector.
+This ruleset styles the <footer> element. Text is dark blue, centered, with a top margin and no top padding. 
+Text scales via clamp().
+*/
+footer {
+    margin: 50px 0 0 0;       /* large top margin */
+    padding-top: 0;         /* no padding */
+    color: var(--storm);    /* dark blue text */
+    text-align: center;     /* centers text horizontally */ 
+    font-size: clamp(10px, 1vw, 18px);  /* fluid text sizing */
+    /* clamp(min, fluid, max):
+    16px floor keeps body readable on phones,
+    1.2vw scales with the screen,
+    18px ceiling stops it growing too large. */
+}
+
+/* .container is a descendent selector.
+This ruleset styles elements with the .container class. Max width is 1400px. Content is centered with 
+a top margin only. Padding scales via clamp().
+*/
+.container {
+    max-width: 1400px;                  /* prevents overly wide text lines on wide displays */
+    margin: 0 auto;                     /* centers content horizontally */
+    padding: clamp(20px, 1vw, 40px);    /* fluid padding around content */  
+    /* clamp(min, fluid, max):
+    20px floor adds padding on phones to keep the page from looking crowded,
+    1vw scales padding with the screen,
+    40px ceiling keeps padding from getting to large on wide displays. */
+}
+
+
+
+
+/*  3
+==========================================================================================================
+    CLAMP TYPE SCALE
+    Larger screens get larger headings,
+    but each size is clamped at both ends.
+==========================================================================================================
+*/
+
+/* h1 is an element selector.
+This ruleset styles the <h1> element. Text is dark blue, centered, title case, heavy sans-serif font.
+Character spacing is lessened to make text more legible. No margins. Text scale via clamp().
+*/
+h1 {
+    color: var(--storm);                 /* dark blue text */
+    text-align: center;                  /* centers text horizontally */
+    text-transform: capitalize;          /* text is all caps */
+    font-family: var(--heavy-text);      /* heavy font for titles */ 
+    letter-spacing: -0.01em;             /* for headlines: slightly less space between characters */
+    margin: 0;                           /* removes margins */
+    font-size: clamp(55px, 5vw, 100px);  /* fluid text sizing */
+    /* clamp(min, fluid, max):
+    55px floor makes headline text large on phones,
+    5vw scales with the screen,
+    100px ceiling keeps headline large on desktop */  
+}
+
+/* h2 is an element selector.
+This ruleset styles the <h2> element. Text is medium blue, centered, uppercase, heavy sans-serif font.
+Character spacing is widened to make uppercase text more legible. Bottom margin and text scale via clamp().
+*/
+h2 {
+    letter-spacing: 0.1em;                  /* slight loosening for uppercase text */
+    color: var(--stormy);                   /* medium blue text */
+    font-family: var(--heavy-text);         /* heavy font for titles */ 
+    text-transform: uppercase;              /* text is converted to title case */ 
+    text-align: center;                     /* centers text horizontally */
+    margin-bottom: clamp(10px, 1vw, 30px);  /* adds padding below content */
+    /* clamp(min, fluid, max):
+    10px floor for the bottom margin on phones,
+    1vw scales with the screen,
+    30px ceiling keeps margin from getting too large on desktop */
+    font-size: clamp(30px, 3vw, 60px);      /* fluid text sizing */
+    /* clamp(min, fluid, max):
+    30px floor makes header text large on phones,
+    3vw scales with the screen,
+    60px ceiling keeps header large on desktop */
+}
+
+/* h3 is an element selector.
+This ruleset styles the <h3> element. Text is medium blue. Character spacing is widened to make text 
+more legible. Text scales via clamp().
+*/
+h3 {
+    color: var(--stormy);   /* medium blue text */
+    line-height: 1.25;      /* slightly wider spacing between lines improves legibility */
+    font-size: clamp(18px, 1.5vw, 24px);  /* fluid text sizing */
+    /* clamp(min, fluid, max):
+    18px floor keeps text readable on phones,
+    1.5vw scales with the screen,
+    24px ceiling stops it growing too large. */
+}
+
+/* p is an element selector.
+This ruleset styles the <p> element. Text is dark grey. Padding scales via clamp().
+*/
+p {
+    color: var(--ink);                  /* dark grey text */
+    padding: clamp(10px, 1vw, 20px);    /* Adds padding around content */  
+}
+
+
+/*  */
+/* .small is a descendent selector.
+This ruleset is a small text utility (captions, meta, footer). Text scales via clamp().
+*/
+.small {
+    font-size: clamp(12px, 1vw, 14px); /* fluid text sizing */
+    /* clamp(min, fluid, max):
+    12px floor keeps small text legible on phones,
+    0.8vw scales with the screen,
+    14px ceiling stops it growing too large. */
+}
+
+/* Small text utility (header section only), slighlty larger than default */
+
+/* header .small is a descendent selector.
+This ruleset is a small text utility (captions, meta, footer) for the <header> section only. 
+Line length is capped for increased legibility. Text is centered with a horizontal line above and below. 
+Text scales via clamp().
+*/
+header .small {
+    max-width: 60ch;                    /* caps line length at 60 characters */
+    text-align: center;                 /* centers text horizontally */
+    border-top: var(--line);            /* adds line above text */
+    border-bottom: var(--line);         /* adds line below text */
+    padding: 0 auto;                    /* no vertical padding */  /* centers contents */
+    margin: 0 auto;                     /* no vertical margin */  /* centers contents */
+    font-size: clamp(14px, 1vw, 18px);  /* fluid text sizing */
+    /* clamp(min, fluid, max):
+    14px floor keeps text readable on phones,
+    1vw scales with the screen,
+    18px ceiling stops it growing too large. */
+}
+
+/* .centered is a descendent selector.
+This ruleset styles text elements. Text is centered horizontally in the container.
+*/
+.centered {
+    text-align: center;    /* centers text */
+}
+
+/* .centered is a descendent selector.
+This ruleset styles text elements. Text is left aligned with a slim blue line above.
+*/
+.left {
+    text-align: left;    /* left-align text */
+    border-top: var(--line);
+    padding: 25px 0 0 0;
+    margin-left: 0;
+}
+
+/* .tagline is a descendent selector.
+This ruleset styles the hero section's tagline. Text is medium blue, centered, with wider spacing 
+between lines.
+*/
+.tagline {
+    line-height: 1.2;         /* slightly wider spacing between lines improves legibility */
+    color: var(--stormy);     /* medium blue text */
+    text-align: center;       /* centers text horizontally */
+    font-size: clamp(18px, 2vw, 24px);  /* fluid text sizing */
+    /* clamp(min, fluid, max):
+    18px floor keeps text legible on phones,
+    2vw scales with the screen,
+    24px ceiling stops it growing too large. */
+}
+
+/* clamps is a descendent selector.
+This ruleset formats the clamps on either side of the section header. Text is purple, 
+character spacing tightened. Turns text into a simple set of clamps that surround the section name. */
+.clamps {
+    letter-spacing: -0.05em;    /* tighten letter spacing to remove space between characters */  
+    color: var(--purple);       /* dark purple text */
+}
+
+
+
+/*  4
+==========================================================================================================
+    SECTIONS / CARDS
+==========================================================================================================
+*/
+
+/* .hero is a descendent selector.
+This ruleset styles the hero section container. Padding scales via clamp().
+*/
+.hero {
+    padding: clamp(14px, 2.4vw, 24px);   /* fluid padding around content */
+    /* clamp(min, fluid, max):
+    14px floor reduces padding around card contents,
+    1.2vw scales padding with the screen,
+    24px ceiling keeps padding from getting too large on wide displays. */
+}
+
+/*
+.grid is a descendent selector.
+This ruleset formats the gallery's layout. Gallery is displayed in a single column on mobile.
+*/
+.grid {
+    display: grid;                  /* formats gallery in a grid */
+    grid-template-columns: 1fr;     /* MOBILE FIRST: single column of cards */
+    gap: 20px;                      /* even spacing between cards */
+}
+
+/*
+.card is a descendent selector.
+This ruleset styles the gallery cards. Card has a light blue background, a small purple outline,
+rounded corners, and a subtle drop shadow. Padding scales via clamp().
+*/
+.card {
+    background: var(--bg);              /* light blue background */
+    border: 3px solid var(--purple);    /* small outline to distinguish cards */
+    border-radius: var(--radius);       /* rounded corners */
+    box-shadow: var(--shadow);          /* light grey drop shadow */
+    padding: clamp(20px, 1.2vw, 25px);  /* fluid padding around content */
+    /* clamp(min, fluid, max):
+    20px floor adds padding on phones to keep the page from looking crowded,
+    1.2vw scales padding with the screen,
+    25px ceiling keeps padding from getting to large on wide displays. */
+}
+
+
+
+
+
+/*  5
+==========================================================================================================
+    BREAKPOINTS
+    Mobile: 1 column -> Tablet: 2 -> Desktop: 3
+==========================================================================================================
+
+@media are media queries.
+These rulesets assign width bounds and styling to page elements depending on the size of the display.
+*/
+
+/* This ruleset styles the grid on displays under 720px wide. Gallery is displayed in two columns on 
+tablet.
+*/
+@media (min-width: 720px) {
+    .grid { 
+        grid-template-columns: repeat(2, 1fr);  /* 2 columns of cards on tablet */
+        gap: clamp(25px, 1vw, 30px);            /* fluid spacing between cards */
+        /* clamp(min, fluid, max):
+        25px floor keeps cards closer together on narrower displays,
+        1vw scales gap with the screen,
+        30px ceiling slightly widens gap on tablet displays. */
+    }  
+}
+
+/* This ruleset styles the grid on displays under 980px wide. Gallery is displayed in three columns on 
+desktop.
+*/
+@media (min-width: 980px) {
+    .grid { 
+        grid-template-columns: repeat(3, 1fr);  /* 3 columns of cards on desktop*/
+        justify-content: space-around;          /* even spacing around cards */
+        gap: 30px;                              /* even spacing between cards */
+    }     
+}
